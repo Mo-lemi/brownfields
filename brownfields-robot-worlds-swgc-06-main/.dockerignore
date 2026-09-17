@@ -1,0 +1,8 @@
+# Keep the build context minimal: the image only needs the fat JAR,
+# which the Dockerfile COPYs from target/. Everything else (git history,
+# IDE files, reference JARs, local database, flow logs) stays out of the
+# image and out of the context upload.
+*
+!target
+target/*
+!target/robot-world-*-jar-with-dependencies.jar
